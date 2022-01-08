@@ -1,4 +1,5 @@
 import json
+from typing import final
 import pandas as pd
 from functools import reduce
 
@@ -99,7 +100,7 @@ class TableroJugadores:
         df = self.goles_por_nivel()
         total_goles = df.groupby('nombre').agg({'goles': 'sum'}) * 100
         objetivo_goles_nivel = df.groupby('nombre').agg({'goles_por_nivel': 'sum'})
-        porcentaje_goles_jugador = total_goles.div(objetivo_goles_nivel.values).astype(float).round(1)
+        porcentaje_goles_jugador = total_goles.div(objetivo_goles_nivel.values).astype(float).round(2)
         porcentaje_goles_jugador.rename(columns={'goles': 'porcentaje_goles_jugador'}, inplace=True)
         porcentaje_goles_jugador.reset_index(level=0, inplace=True)
         return porcentaje_goles_jugador
@@ -131,11 +132,21 @@ class TableroJugadores:
     2        EL Cuauh  Cuauh     30  100000  30000            None   azul               20                  37                     25                      148                     150.0
     3  Cosme Fulanito      A      7   20000  10000            None   azul                5                  37                     25                      148                     140.0
         """
-        
 
-tablero = TableroJugadores('players.json')
+
+    def calcular_salario(self):
+        final_df = self.unir_dataframe()
+        porcentaje_bono = (final_df['porcentaje_goles_equipo'] + final_df['porcentaje_goles_jugador']) / 2
+        bono = ((porcentaje_bono * final_df['bono']) / 100) 
+        final_df['salario_completo'] = (final_df['sueldo'] + bono).astype(float).round(2)
+        final_df.sueldo_completo = final_df.salario_completo
+        return final_df
+
+
+tablero = TableroJugadores('prueba.json')
 print(tablero.objetivo_goles_equipo())
 print(tablero.total_goles_equipo())
 print(tablero.porcentaje_goles_equipo())
 print(tablero.porcentaje_goles_jugador())
 print(tablero.unir_dataframe())
+print(tablero.calcular_salario())
