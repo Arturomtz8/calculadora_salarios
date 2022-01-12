@@ -1,0 +1,42 @@
+{
+    "jugadores" : [  
+       {  
+          "nombre":"Juan",
+          "nivel":"A",
+          "goles":6,
+          "sueldo":50000,
+          "bono":25000,
+          "sueldo_completo":null,
+          "equipo":"rojo"
+       },
+       {  
+          "nombre":"Pedro",
+          "nivel":"B",
+          "goles":7,
+          "sueldo":100000,
+          "bono":30000,
+          "sueldo_completo":null,
+          "equipo":"rojo"
+       },
+       {  
+          "nombre":"Martín",
+          "nivel":"C",
+          "goles":16,
+          "sueldo":20000,
+          "bono":10000,
+          "sueldo_completo":null,
+          "equipo":"rojo"
+ 
+       },
+       {  
+          "nombre":"Luis",
+          "nivel":"Cuauh",
+          "goles":19,
+          "sueldo":50000,
+          "bono":10000,
+          "sueldo_completo":null,
+          "equipo":"rojo"
+ 
+       }
+    ]
+ }
