@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 pandas = "*"
+black = "==18.9b0"
+flake8 = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"
