@@ -15,14 +15,19 @@ class TableroJugadores:
             return data
 
     def convertir_a_dataframe(self):
-        """convierte el diccionario en un dataframe"""
+        """
+        convierte el diccionario en un dataframe
+        """
         data = self.leer_json()
         df = pd.DataFrame(data["jugadores"])
         return df
 
     def goles_por_nivel(self):
-        """crea una nueva columna (goles_por_nivel) que correlacione A,B,C o CUAUH de cada 
-        jugador con el número de goles que deberían meter"""
+        """
+        crea una nueva columna (goles_por_nivel) que correlacione
+        A,B,C o CUAUH de cada jugador con el número de goles
+        que deberían meter
+        """
         df = self.convertir_a_dataframe()
         # convertir valores de columna a mayúsculas para que concuerden con diccionario "levels"
         uppercased = df["nivel"].str.upper()
@@ -39,8 +44,11 @@ class TableroJugadores:
         """
 
     def porcentaje_goles_equipo(self):
-        """calcula el porcentaje de goles por equipo, comparando el objetivo de goles vs los goles 
-        totales, que ayudará para deducir el 50% del bono de los jugadores"""
+        """
+        calcula el porcentaje de goles por equipo, comparando el
+        objetivo de goles vs los goles totales, que ayudará
+        para deducir el 50% del bono de los jugadores
+        """
         df = self.goles_por_nivel()
         goles_equipo = df.groupby("equipo").agg({"goles": "sum"}) * 100
         objetivo_goles_equipo = df.groupby("equipo").agg({"goles_por_nivel": "sum"})
@@ -56,8 +64,11 @@ class TableroJugadores:
         """
 
     def porcentaje_goles_jugador(self):
-        """deduce el otro 50% del bono de los jugadores. Compara el objetivo de goles de cada 
-        jugador dependiendo su nivel vs el total de goles individuales"""
+        """
+        deduce el otro 50% del bono de los jugadores. Compara el
+        objetivo de goles de cada jugador dependiendo su
+        nivel vs el total de goles individuales
+        """
         df = self.goles_por_nivel()
         total_goles = df.groupby("nombre").agg({"goles": "sum"}) * 100
         objetivo_goles_nivel = df.groupby("nombre").agg({"goles_por_nivel": "sum"})
@@ -75,8 +86,11 @@ class TableroJugadores:
         """
 
     def unir_dataframe(self):
-        """une tres dataframes: 1) el primero sacado del json, 2) el dataframe que contiene 
-        el porcentaje de goles por equipo y 3) el dataframe que tiene el porcentaje de goles por jugador"""
+        """
+        une tres dataframes: 1) el primero sacado del json,
+        2) el dataframe que contiene el porcentaje de goles por equipo
+        y 3) el dataframe que tiene el porcentaje de goles por jugador
+        """
         df_inicial = self.convertir_a_dataframe()
         df_goles_equipo = self.porcentaje_goles_equipo()
         df_goles_jugador = self.porcentaje_goles_jugador()
@@ -93,9 +107,13 @@ class TableroJugadores:
         """
 
     def calcular_salario(self):
-        """primero se obtiene el porcentaje del bono que le corresponde a cada jugador dependiendo 
-        del porcentaje de goles individuales y el porcentaje de goles de su equipo. Ese porcentaje 
-        ayuda para saber qué tanto del bono tendrá el jugador. Finalmente, el bono se suma al salario fijo"""
+        """
+        primero se obtiene el porcentaje del bono que le corresponde
+        a cada jugador dependiendo del porcentaje de goles individuales
+        y el porcentaje de goles de su equipo. Ese porcentaje ayuda
+        para saber qué tanto del bono tendrá el jugador.
+        Finalmente, el bono se suma al salario fijo
+        """
         final_df = self.unir_dataframe()
         porcentaje_bono = (final_df["porcentaje_goles_equipo"] + final_df["porcentaje_goles_jugador"]) / 2
         bono = (porcentaje_bono * final_df["bono"]) / 100
@@ -111,9 +129,12 @@ class TableroJugadores:
         """
 
     def convertir_a_json(self):
-        """guarda el dataframe en formato json. El archivo se guardará en la misma carpeta donde 
-        se ejecute el programa y su nombre será igual al nombre original del archivo más 'output' para 
-        indicar que es el json con la columna del sueldo con valores"""
+        """
+        guarda el dataframe en formato json. El archivo se
+        guardará en la misma carpeta donde se ejecute el programa
+        y su nombre será igual al nombre original del archivo más 'output'
+        para indicar que es el json con la columna del sueldo con valores
+        """
         dicc_jugadores = dict()
         con_salario_df = self.calcular_salario()
         con_salario_df.drop(["porcentaje_goles_jugador", "porcentaje_goles_equipo"], axis=1, inplace=True)
@@ -123,7 +144,7 @@ class TableroJugadores:
         return dicc_jugadores
 
 
-tablero = TableroJugadores("primera_prueba.json")
+tablero = TableroJugadores("prueba.json")
 # print(tablero.goles_por_nivel())
 # print(tablero.porcentaje_goles_equipo())
 # print(tablero.porcentaje_goles_jugador())
