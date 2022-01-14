@@ -7,6 +7,7 @@ name = "pypi"
 pandas = "*"
 black = "==18.9b0"
 flake8 = "*"
+pytest = "*"
 
 [dev-packages]
 
