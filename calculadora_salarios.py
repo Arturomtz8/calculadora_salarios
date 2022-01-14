@@ -57,7 +57,7 @@ class TableroJugadores:
         df = self.goles_por_nivel()
         goles_equipo = df.groupby("equipo").agg({"goles": "sum"}) * 100
         objetivo_goles_equipo = df.groupby("equipo").agg({"goles_por_nivel": "sum"})
-        porcentaje_goles_equipo = goles_equipo.div(objetivo_goles_equipo.values).astype(int)
+        porcentaje_goles_equipo = goles_equipo.div(objetivo_goles_equipo.values).astype(float).round()
         porcentaje_goles_equipo.rename(columns={"goles": "porcentaje_goles_equipo"}, inplace=True)
         porcentaje_goles_equipo.reset_index(level=0, inplace=True)
         return porcentaje_goles_equipo
@@ -77,7 +77,7 @@ class TableroJugadores:
         df = self.goles_por_nivel()
         total_goles = df.groupby("nombre").agg({"goles": "sum"}) * 100
         objetivo_goles_nivel = df.groupby("nombre").agg({"goles_por_nivel": "sum"})
-        porcentaje_goles_jugador = total_goles.div(objetivo_goles_nivel.values).astype(float).round(2)
+        porcentaje_goles_jugador = total_goles.div(objetivo_goles_nivel.values).astype(float).round()
         porcentaje_goles_jugador.rename(columns={"goles": "porcentaje_goles_jugador"}, inplace=True)
         porcentaje_goles_jugador.reset_index(level=0, inplace=True)
         return porcentaje_goles_jugador
