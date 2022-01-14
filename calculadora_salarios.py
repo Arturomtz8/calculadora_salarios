@@ -7,10 +7,9 @@ niveles = {"A": 5, "B": 10, "C": 15, "CUAUH": 20}
 
 class TableroJugadores:
     """
-    para hacer una instancia de esta clase sólo requieres un 
+    para hacer una instancia de esta clase sólo requieres un
     parametro, el nombre del archivo. El método que se
     apoya en el resto de métodos es convertir_a_json.
-    
     """
     def __init__(self, nombre_archivo):
         self.nombre_archivo = nombre_archivo
