@@ -95,7 +95,7 @@ class TableroJugadores:
 
     def unir_dataframe(self):
         """
-        une tres dataframes: 1) el dataframe donde se renombra la columna 
+        une tres dataframes: 1) el dataframe donde se renombra la columna
         "nivel" y se sustituyen las categorías por el mínimo de goles,
         2) el dataframe que contiene el porcentaje de goles por equipo
         y 3) el dataframe que tiene el porcentaje de goles por jugador
