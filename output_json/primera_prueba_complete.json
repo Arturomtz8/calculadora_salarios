@@ -2,7 +2,7 @@
     "jugadores": [
         {
             "nombre": "Juan",
-            "nivel": "A",
+            "goles_mínimos": 5,
             "goles": 6,
             "sueldo": 50000,
             "bono": 25000,
@@ -11,7 +11,7 @@
         },
         {
             "nombre": "Pedro",
-            "nivel": "B",
+            "goles_mínimos": 10,
             "goles": 7,
             "sueldo": 100000,
             "bono": 30000,
@@ -20,7 +20,7 @@
         },
         {
             "nombre": "Martín",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 16,
             "sueldo": 20000,
             "bono": 10000,
@@ -29,7 +29,7 @@
         },
         {
             "nombre": "Luis",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 19,
             "sueldo": 50000,
             "bono": 10000,

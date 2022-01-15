@@ -1,9 +1,10 @@
+
 def test_assert_simple():
     expected_json = {
     "jugadores" : [  
        {  
           "nombre":"Juan",
-          "nivel":"A",
+          "goles_mínimos":5,
           "goles":6,
           "sueldo":50000,
           "bono":25000,
@@ -12,7 +13,7 @@ def test_assert_simple():
        },
        {  
           "nombre":"Pedro",
-          "nivel":"B",
+          "goles_mínimos":10,
           "goles":7,
           "sueldo":100000,
           "bono":30000,
@@ -21,17 +22,17 @@ def test_assert_simple():
        },
        {  
           "nombre":"Martín",
-          "nivel":"C",
+          "goles_mínimos":15,
           "goles":16,
           "sueldo":20000,
           "bono":10000,
-          "sueldo_completo":30133.5,
+          "sueldo_completo":30150.0,
           "equipo":"rojo"
  
        },
        {  
           "nombre":"Luis",
-          "nivel":"Cuauh",
+          "goles_mínimos":20,
           "goles":19,
           "sueldo":50000,
           "bono":10000,
@@ -45,7 +46,7 @@ def test_assert_simple():
     "jugadores": [
         {
             "nombre": "Juan",
-            "nivel": "A",
+            "goles_mínimos": 5,
             "goles": 6,
             "sueldo": 50000,
             "bono": 25000,
@@ -54,7 +55,7 @@ def test_assert_simple():
         },
         {
             "nombre": "Pedro",
-            "nivel": "B",
+            "goles_mínimos": 10,
             "goles": 7,
             "sueldo": 100000,
             "bono": 30000,
@@ -63,16 +64,16 @@ def test_assert_simple():
         },
         {
             "nombre": "Martín",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 16,
             "sueldo": 20000,
             "bono": 10000,
-            "sueldo_completo": 30133.5,
+            "sueldo_completo": 30150.0,
             "equipo": "rojo"
         },
         {
             "nombre": "Luis",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 19,
             "sueldo": 50000,
             "bono": 10000,
@@ -81,6 +82,7 @@ def test_assert_simple():
         }
     ]
 }
+   
     assert  return_json == expected_json
 
 
@@ -89,7 +91,7 @@ def test_assert_teams():
     "jugadores" : [  
        {  
           "nombre":"Simón",
-          "nivel":"C",
+          "goles_mínimos":15,
           "goles":13,
           "sueldo":70000,
           "bono":15000,
@@ -98,7 +100,7 @@ def test_assert_teams():
        },
         {  
           "nombre":"Quique",
-          "nivel":"Cuauh",
+          "goles_mínimos":20,
           "goles":5,
           "sueldo":60000,
           "bono":8000,
@@ -108,7 +110,7 @@ def test_assert_teams():
        },
         {  
         "nombre":"Felipe",
-        "nivel":"Cuauh",
+        "goles_mínimos":20,
         "goles":30,
         "sueldo":70000,
         "bono":25000,
@@ -118,7 +120,7 @@ def test_assert_teams():
      },
        {  
           "nombre":"Alejandro",
-          "nivel":"A",
+          "goles_mínimos":5,
           "goles":15,
           "sueldo":40000,
           "bono":10000,
@@ -127,7 +129,7 @@ def test_assert_teams():
        },
         {  
         "nombre":"George",
-        "nivel":"C",
+        "goles_mínimos":15,
         "goles":3,
         "sueldo":50000,
         "bono":5000,
@@ -137,7 +139,7 @@ def test_assert_teams():
      },
     {  
         "nombre":"Gonzalo",
-        "nivel":"Cuauh",
+        "goles_mínimos":20,
         "goles":4,
         "sueldo":60000,
         "bono":20000,
@@ -148,7 +150,7 @@ def test_assert_teams():
 
        {  
           "nombre":"Fernando",
-          "nivel":"C",
+          "goles_mínimos":15,
           "goles":20,
           "sueldo":45000,
           "bono":13000,
@@ -159,7 +161,7 @@ def test_assert_teams():
 
      {  
         "nombre":"Rafa",
-        "nivel":"A",
+        "goles_mínimos":5,
         "goles":16,
         "sueldo":20000,
         "bono":5000,
@@ -170,7 +172,7 @@ def test_assert_teams():
 
      {  
         "nombre":"Alberto",
-        "nivel":"B",
+        "goles_mínimos":10,
         "goles":8,
         "sueldo":30000,
         "bono":2000,
@@ -186,7 +188,7 @@ def test_assert_teams():
     "jugadores": [
         {
             "nombre": "Simón",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 13,
             "sueldo": 70000,
             "bono": 15000,
@@ -195,7 +197,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Quique",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 5,
             "sueldo": 60000,
             "bono": 8000,
@@ -204,7 +206,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Felipe",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 30,
             "sueldo": 70000,
             "bono": 25000,
@@ -213,7 +215,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Alejandro",
-            "nivel": "A",
+            "goles_mínimos": 5,
             "goles": 15,
             "sueldo": 40000,
             "bono": 10000,
@@ -222,7 +224,7 @@ def test_assert_teams():
         },
         {
             "nombre": "George",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 3,
             "sueldo": 50000,
             "bono": 5000,
@@ -231,7 +233,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Gonzalo",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 4,
             "sueldo": 60000,
             "bono": 20000,
@@ -240,7 +242,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Fernando",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 20,
             "sueldo": 45000,
             "bono": 13000,
@@ -249,7 +251,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Rafa",
-            "nivel": "A",
+            "goles_mínimos": 5,
             "goles": 16,
             "sueldo": 20000,
             "bono": 5000,
@@ -258,7 +260,7 @@ def test_assert_teams():
         },
         {
             "nombre": "Alberto",
-            "nivel": "B",
+            "goles_mínimos": 10,
             "goles": 8,
             "sueldo": 30000,
             "bono": 2000,
@@ -267,4 +269,5 @@ def test_assert_teams():
         }
     ]
 }
+    
     assert  return_json == expected_json

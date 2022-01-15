@@ -2,7 +2,7 @@
     "jugadores": [
         {
             "nombre": "Simón",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 13,
             "sueldo": 70000,
             "bono": 15000,
@@ -11,7 +11,7 @@
         },
         {
             "nombre": "Quique",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 5,
             "sueldo": 60000,
             "bono": 8000,
@@ -20,7 +20,7 @@
         },
         {
             "nombre": "Felipe",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 30,
             "sueldo": 70000,
             "bono": 25000,
@@ -29,7 +29,7 @@
         },
         {
             "nombre": "Alejandro",
-            "nivel": "A",
+            "goles_mínimos": 5,
             "goles": 15,
             "sueldo": 40000,
             "bono": 10000,
@@ -38,7 +38,7 @@
         },
         {
             "nombre": "George",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 3,
             "sueldo": 50000,
             "bono": 5000,
@@ -47,7 +47,7 @@
         },
         {
             "nombre": "Gonzalo",
-            "nivel": "Cuauh",
+            "goles_mínimos": 20,
             "goles": 4,
             "sueldo": 60000,
             "bono": 20000,
@@ -56,7 +56,7 @@
         },
         {
             "nombre": "Fernando",
-            "nivel": "C",
+            "goles_mínimos": 15,
             "goles": 20,
             "sueldo": 45000,
             "bono": 13000,
@@ -65,7 +65,7 @@
         },
         {
             "nombre": "Rafa",
-            "nivel": "A",
+            "goles_mínimos": 5,
             "goles": 16,
             "sueldo": 20000,
             "bono": 5000,
@@ -74,7 +74,7 @@
         },
         {
             "nombre": "Alberto",
-            "nivel": "B",
+            "goles_mínimos": 10,
             "goles": 8,
             "sueldo": 30000,
             "bono": 2000,

@@ -1,4 +1,5 @@
 import json
+import numpy as np
 import pandas as pd
 
 
@@ -15,7 +16,7 @@ class TableroJugadores:
         self.nombre_archivo = nombre_archivo
 
     def leer_json(self):
-        with open(self.nombre_archivo) as f:
+        with open(f"input_json/{self.nombre_archivo}") as f:
             data = json.load(f)
             return data
 
@@ -27,25 +28,27 @@ class TableroJugadores:
         df = pd.DataFrame(data["jugadores"])
         return df
 
-    def goles_por_nivel(self):
+    def goles_mínimos(self):
         """
-        crea una nueva columna (goles_por_nivel) que correlacione
-        A,B,C o CUAUH de cada jugador con el número de goles
-        que deberían meter
+        sustituye la columna de "nivel" por el número de goles
+        que debería meter cada jugador dependiendo su
+        categoría y la renombra como "goles_mínimos".
+        En caso de que la columna tenga el nivel como
+        número, sólo renombrará la columna
         """
         df = self.convertir_a_dataframe()
-        # convertir valores de columna a mayúsculas para que concuerden con diccionario "levels"
-        uppercased = df["nivel"].str.upper()
-        # crear nueva columna con los goles que debe meter el jugador dependiendo su nivel
-        df["goles_por_nivel"] = uppercased.map(niveles)
+        if not df["nivel"].dtype == np.int64:
+            uppercased = df["nivel"].str.upper()
+            df["nivel"] = uppercased.map(niveles)
+        df.rename(columns={"nivel": "goles_mínimos"}, inplace=True)
         return df
 
         """
-                   nombre  nivel  goles  sueldo   bono sueldo_completo equipo  goles_por_nivel
-        0      Juan Perez      C     10   50000  25000            None   rojo               15
-        1        EL Cuauh  Cuauh     30  100000  30000            None   azul               20
-        2  Cosme Fulanito      A      7   20000  10000            None   azul                5
-        3         El Rulo      B      9   30000  15000            None   rojo               10
+                   nombre  goles_mínimos  goles  sueldo   bono sueldo_completo equipo
+        0      Juan Perez             15     10   50000  25000            None   rojo
+        1        EL Cuauh             20     30  100000  30000            None   azul
+        2  Cosme Fulanito              5      7   20000  10000            None   azul
+        3         El Rulo             10      9   30000  15000            None   rojo
         """
 
     def porcentaje_goles_equipo(self):
@@ -54,9 +57,9 @@ class TableroJugadores:
         objetivo de goles vs los goles totales, que ayudará
         para deducir el 50% del bono de los jugadores
         """
-        df = self.goles_por_nivel()
+        df = self.goles_mínimos()
         goles_equipo = df.groupby("equipo").agg({"goles": "sum"}) * 100
-        objetivo_goles_equipo = df.groupby("equipo").agg({"goles_por_nivel": "sum"})
+        objetivo_goles_equipo = df.groupby("equipo").agg({"goles_mínimos": "sum"})
         porcentaje_goles_equipo = goles_equipo.div(objetivo_goles_equipo.values).astype(float).round()
         porcentaje_goles_equipo.rename(columns={"goles": "porcentaje_goles_equipo"}, inplace=True)
         porcentaje_goles_equipo.reset_index(level=0, inplace=True)
@@ -64,8 +67,8 @@ class TableroJugadores:
 
         """
           equipo  porcentaje_goles_equipo
-        0   azul                      148
-        1   rojo                       76
+        0   azul                    148.0
+        1   rojo                     76.0
         """
 
     def porcentaje_goles_jugador(self):
@@ -74,9 +77,9 @@ class TableroJugadores:
         objetivo de goles de cada jugador dependiendo su
         nivel vs el total de goles individuales
         """
-        df = self.goles_por_nivel()
+        df = self.goles_mínimos()
         total_goles = df.groupby("nombre").agg({"goles": "sum"}) * 100
-        objetivo_goles_nivel = df.groupby("nombre").agg({"goles_por_nivel": "sum"})
+        objetivo_goles_nivel = df.groupby("nombre").agg({"goles_mínimos": "sum"})
         porcentaje_goles_jugador = total_goles.div(objetivo_goles_nivel.values).astype(float).round()
         porcentaje_goles_jugador.rename(columns={"goles": "porcentaje_goles_jugador"}, inplace=True)
         porcentaje_goles_jugador.reset_index(level=0, inplace=True)
@@ -84,30 +87,31 @@ class TableroJugadores:
 
         """
                    nombre   porcentaje_goles_jugador
-        0  Cosme Fulanito                     140.00
-        1        EL Cuauh                     150.00
-        2         El Rulo                      90.00
-        3      Juan Perez                      66.67
+        0  Cosme Fulanito                      140.0
+        1        EL Cuauh                      150.0
+        2         El Rulo                       90.0
+        3      Juan Perez                       67.0
         """
 
     def unir_dataframe(self):
         """
-        une tres dataframes: 1) el primero sacado del json,
+        une tres dataframes: 1) el dataframe donde se renombra la columna 
+        "nivel" y se sustituyen las categorías por el mínimo de goles,
         2) el dataframe que contiene el porcentaje de goles por equipo
         y 3) el dataframe que tiene el porcentaje de goles por jugador
         """
-        df_inicial = self.convertir_a_dataframe()
+        df_goles_mínimos = self.goles_mínimos()
         df_goles_equipo = self.porcentaje_goles_equipo()
         df_goles_jugador = self.porcentaje_goles_jugador()
-        final_df = df_inicial.merge(df_goles_jugador, on="nombre").merge(df_goles_equipo, on="equipo")
+        final_df = df_goles_mínimos.merge(df_goles_jugador, on="nombre").merge(df_goles_equipo, on="equipo")
         return final_df
 
         """
-                   nombre  nivel  goles  sueldo   bono sueldo_completo equipo  porcentaje_goles_jugador  porcentaje_goles_equipo
-        0      Juan Perez      C     10   50000  25000            None   rojo                     66.67                       76
-        1         El Rulo      B      9   30000  15000            None   rojo                     90.00                       76
-        2        EL Cuauh  Cuauh     30  100000  30000            None   azul                    150.00                      148
-        3  Cosme Fulanito      A      7   20000  10000            None   azul                    140.00                      148
+                   nombre  goles_mínimos  goles  sueldo   bono sueldo_completo  equipo  porcentaje_goles_jugador  porcentaje_goles_equipo
+        0      Juan Perez             15     10   50000  25000            None   rojo                      67.0                     76.0
+        1         El Rulo             10      9   30000  15000            None   rojo                      90.0                     76.0
+        2        EL Cuauh             20     30  100000  30000            None   azul                     150.0                    148.0
+        3  Cosme Fulanito              5      7   20000  10000            None   azul                     140.0                    148.0
 
         """
 
@@ -126,24 +130,24 @@ class TableroJugadores:
         return final_df
 
         """
-                   nombre  nivel  goles  sueldo   bono  sueldo_completo equipo   porcentaje_goles_jugador  porcentaje_goles_equipo
-        0      Juan Perez      C     10   50000  25000         67833.75   rojo                     66.67                       76
-        1         El Rulo      B      9   30000  15000         42450.00   rojo                     90.00                       76
-        2        EL Cuauh  Cuauh     30  100000  30000        144700.00   azul                    150.00                      148
-        3  Cosme Fulanito      A      7   20000  10000         34400.00   azul                    140.00                      148
+                    nombre  goles_mínimos  goles  sueldo  bono  sueldo_completo equipo  porcentaje_goles_jugador  porcentaje_goles_equipo
+        0      Juan Perez             15     10   50000  25000          67875.0   rojo                      67.0                     76.0
+        1         El Rulo             10      9   30000  15000          42450.0   rojo                      90.0                     76.0
+        2        EL Cuauh             20     30  100000  30000         144700.0   azul                     150.0                    148.0
+        3  Cosme Fulanito              5      7   20000  10000          34400.0   azul                     140.0                    148.0
         """
 
     def convertir_a_json(self):
         """
         guarda el dataframe en formato json. El archivo se
-        guardará en la misma carpeta donde se ejecute el programa
-        y su nombre será igual al nombre original del archivo más 'output'
+        guardará en la carpeta llamada "output" y su nombre
+        será igual al nombre original del archivo más 'complete'
         para indicar que es el json con la columna del sueldo con valores
         """
         dicc_jugadores = dict()
         con_salario_df = self.calcular_salario()
         con_salario_df.drop(["porcentaje_goles_jugador", "porcentaje_goles_equipo"], axis=1, inplace=True)
         dicc_jugadores["jugadores"] = con_salario_df.to_dict("records")
-        with open(f"{self.nombre_archivo}output.json".replace(".json", "_", 1), "w") as f:
+        with open(f"output_json/{self.nombre_archivo}complete.json".replace(".json", "_", 1), "w") as f:
             json.dump(dicc_jugadores, f, indent=4, ensure_ascii=False)
         return dicc_jugadores
