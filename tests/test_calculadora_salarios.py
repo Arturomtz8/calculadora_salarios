@@ -7,7 +7,54 @@ def abrir_json(nombre_archivo):
         return my_json
 
 
-def test_assert_simple():
+def test_assert_example_repo():
+    expected_json = {
+        "jugadores": [
+            {
+                "nombre": "Juan",
+                "goles_mínimos": 5,
+                "goles": 6,
+                "sueldo": 30000,
+                "bono": 2000,
+                "sueldo_completo": 32160.0,
+                "equipo": "rojo",
+            },
+            {
+                "nombre": "Pedro",
+                "goles_mínimos": 10,
+                "goles": 7,
+                "sueldo": 45000,
+                "bono": 4500,
+                "sueldo_completo": 48735.0,
+                "equipo": "rojo",
+            },
+            {
+                "nombre": "Martin",
+                "goles_mínimos": 15,
+                "goles": 16,
+                "sueldo": 50000,
+                "bono": 5500,
+                "sueldo_completo": 55582.5,
+                "equipo": "rojo",
+            },
+            {
+                "nombre": "Luis",
+                "goles_mínimos": 20,
+                "goles": 19,
+                "sueldo": 50000,
+                "bono": 10000,
+                "sueldo_completo": 59550.0,
+                "equipo": "rojo",
+            },
+        ]
+    }
+
+    return_json = abrir_json("ejemplo_repo_complete.json")
+
+    assert return_json == expected_json
+
+
+def test_assert_un_equipo():
     expected_json = {
         "jugadores": [
             {
@@ -48,7 +95,54 @@ def test_assert_simple():
             },
         ]
     }
-    return_json = abrir_json("primera_prueba_complete.json")
+    return_json = abrir_json("un_equipo_complete.json")
+
+    assert return_json == expected_json
+
+
+def test_assert_dos_equipos():
+    expected_json = {
+        "jugadores": [
+            {
+                "nombre": "Juan Perez",
+                "goles_mínimos": 15,
+                "goles": 10,
+                "sueldo": 50000,
+                "bono": 25000,
+                "sueldo_completo": 67875.0,
+                "equipo": "rojo",
+            },
+            {
+                "nombre": "El Rulo",
+                "goles_mínimos": 10,
+                "goles": 9,
+                "sueldo": 30000,
+                "bono": 15000,
+                "sueldo_completo": 42450.0,
+                "equipo": "rojo",
+            },
+            {
+                "nombre": "EL Cuauh",
+                "goles_mínimos": 20,
+                "goles": 30,
+                "sueldo": 100_000,
+                "bono": 30000,
+                "sueldo_completo": 144_700.0,
+                "equipo": "azul",
+            },
+            {
+                "nombre": "Cosme Fulanito",
+                "goles_mínimos": 5,
+                "goles": 7,
+                "sueldo": 20000,
+                "bono": 10000,
+                "sueldo_completo": 34400.0,
+                "equipo": "azul",
+            },
+        ]
+    }
+
+    return_json = abrir_json("repo_dos_equipos_complete.json")
 
     assert return_json == expected_json
 
@@ -140,7 +234,7 @@ def test_assert_equipos():
         ]
     }
 
-    return_json = abrir_json("más_equipos_complete.json")
+    return_json = abrir_json("tres_equipos_complete.json")
 
     assert return_json == expected_json
 

@@ -135,10 +135,11 @@ class CalculadoraSalarios:
 
     def convertir_a_json(self):
         """
-        guarda el dataframe en formato json. El archivo se
-        guardará en la carpeta llamada "output" y su nombre
-        será igual al nombre original del archivo más 'complete'
-        para indicar que es el json con la columna del sueldo con valores
+        guarda el dataframe en formato json tras calcular los
+        salarios. El archivo se guardará en la carpeta llamada
+        "output" y su nombre será igual al nombre original del
+        archivo más "complete" para indicar que es el json
+        con la columna de "sueldo_completo" con el monto correcto
         """
         dicc_jugadores = dict()
         con_salario_df = self.calcular_salario()

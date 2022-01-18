@@ -4,8 +4,8 @@
           "nombre":"Juan",
           "nivel":"A",
           "goles":6,
-          "sueldo":300,
-          "bono":200,
+          "sueldo":30000,
+          "bono":2000,
           "sueldo_completo":null,
           "equipo":"rojo"
        },
@@ -13,8 +13,8 @@
           "nombre":"Pedro",
           "nivel":"B",
           "goles":7,
-          "sueldo":100,
-          "bono":350,
+          "sueldo":45000,
+          "bono":4500,
           "sueldo_completo":null,
           "equipo":"rojo"
        },
@@ -22,8 +22,8 @@
           "nombre":"Martin",
           "nivel":"C",
           "goles":16,
-          "sueldo":400,
-          "bono":250,
+          "sueldo":50000,
+          "bono":5500,
           "sueldo_completo":null,
           "equipo":"rojo"
  

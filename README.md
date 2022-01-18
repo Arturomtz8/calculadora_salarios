@@ -13,7 +13,7 @@ Ejemplo de instanciar una clase:
 from calculadora_salarios import CalculadoraSalarios
 
 
-calcular_tres_equipos = CalculadoraSalarios("más_equipos.json")
+calcular_tres_equipos = CalculadoraSalarios("tres_equipos.json")
 ```
 
 El método `.convertir_a_json()` calculará el salario y guardará los resultados en la carpeta `output_json`:
@@ -22,11 +22,11 @@ El método `.convertir_a_json()` calculará el salario y guardará los resultado
 from calculadora_salarios import CalculadoraSalarios
 
 
-calcular_tres_equipos = CalculadoraSalarios("más_equipos.json")
+calcular_tres_equipos = CalculadoraSalarios("tres_equipos.json")
 calcular_tres_equipos.convertir_a_json()
 ```
 
-Ejemplo de json guardado en `output_json` con el campo de salario completo:
+Ejemplo de json guardado en carpeta `output_json` con el campo "sueldo_completo" con el monto correcto:
 ```json
 {
     "jugadores": [
@@ -70,12 +70,12 @@ Ejemplo de json guardado en `output_json` con el campo de salario completo:
 }
 ```
 
-Si quieres ingresar distintos niveles de los jugadores, puedes ingresar como segundo parámetro de la clase `CalculadoraSalarios` los nuevos niveles en forma de diccionario:
+Si quieres ingresar distintos niveles de los jugadores, puedes ingresar como segundo argumento de la clase `CalculadoraSalarios` los nuevos niveles en forma de diccionario:
 
 ```python
 from calculadora_salarios import CalculadoraSalarios
 
 
-calcular_diferente_nivel = CalculadoraSalarios("distintos_niveles_vv2.json", {"a": 22, "b": 33, "c": 44, "cuauh": 55})
-calcular_diferente_nivel.convertir_a_json()
+calcular_dif_nivel = CalculadoraSalarios("distintos_niveles.json", {"a": 10, "b": 20, "c": 30, "cuauh": 40})
+calcular_dif_nivel.convertir_a_json()
 ```
