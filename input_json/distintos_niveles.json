@@ -1,93 +1,41 @@
 {
     "jugadores" : [  
        {  
-          "nombre":"Simón",
-          "nivel":"C",
-          "goles":13,
-          "sueldo":70000,
-          "bono":15000,
-          "sueldo_completo":null,
-          "equipo":"verde"
-       },
-       {  
-          "nombre":"Alejandro",
-          "nivel":"A",
-          "goles":15,
+          "nombre":"Roberto",
+          "nivel": "A",
+          "goles":24,
           "sueldo":40000,
-          "bono":10000,
-          "sueldo_completo":null,
-          "equipo":"amarillo"
-       },
-       {  
-          "nombre":"Quique",
-          "nivel":"Cuauh",
-          "goles":5,
-          "sueldo":60000,
-          "bono":8000,
-          "sueldo_completo":null,
-          "equipo":"verde"
- 
-       },
-       {  
-          "nombre":"Fernando",
-          "nivel":"C",
-          "goles":20,
-          "sueldo":45000,
           "bono":13000,
           "sueldo_completo":null,
           "equipo":"azul"
- 
        },
        {  
-        "nombre":"George",
-        "nivel":"C",
-        "goles":3,
-        "sueldo":50000,
-        "bono":5000,
-        "sueldo_completo":null,
-        "equipo":"amarillo"
-
-     },
-     {  
-        "nombre":"Rafa",
-        "nivel":"A",
-        "goles":16,
-        "sueldo":20000,
-        "bono":5000,
+        "nombre":"Fernando",
+        "nivel":"Cuauh",
+        "goles":38,
+        "sueldo":45000,
+        "bono":28000,
         "sueldo_completo":null,
         "equipo":"azul"
-
      },
-     {  
-        "nombre":"Felipe",
-        "nivel":"Cuauh",
-        "goles":30,
-        "sueldo":70000,
-        "bono":25000,
-        "sueldo_completo":null,
-        "equipo":"verde"
 
-     },
      {  
-        "nombre":"Alberto",
-        "nivel":"B",
-        "goles":8,
-        "sueldo":30000,
-        "bono":2000,
+        "nombre":"Esteban",
+        "nivel": "C",
+        "goles":21,
+        "sueldo":40000,
+        "bono":24000,
         "sueldo_completo":null,
         "equipo":"azul"
-
      },
      {  
-        "nombre":"Gonzalo",
-        "nivel":"Cuauh",
-        "goles":4,
-        "sueldo":60000,
-        "bono":20000,
-        "sueldo_completo":null,
-        "equipo":"amarillo"
-
-     }
-
+      "nombre":"José Luis",
+      "nivel":"B",
+      "goles":18,
+      "sueldo":28000,
+      "bono":8000,
+      "sueldo_completo":null,
+      "equipo":"azul"
+   }
     ]
  }

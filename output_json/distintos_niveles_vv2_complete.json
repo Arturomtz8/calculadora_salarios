@@ -1,0 +1,112 @@
+{
+    "jugadores": [
+        {
+            "nombre": "Antonio",
+            "goles_mínimos": 55,
+            "goles": 27,
+            "sueldo": 35000,
+            "bono": 8000,
+            "sueldo_completo": 39760.0,
+            "equipo": "morado"
+        },
+        {
+            "nombre": "David",
+            "goles_mínimos": 33,
+            "goles": 24,
+            "sueldo": 36000,
+            "bono": 5500,
+            "sueldo_completo": 39932.5,
+            "equipo": "morado"
+        },
+        {
+            "nombre": "Joel",
+            "goles_mínimos": 22,
+            "goles": 30,
+            "sueldo": 26000,
+            "bono": 9000,
+            "sueldo_completo": 35270.0,
+            "equipo": "morado"
+        },
+        {
+            "nombre": "Edwin",
+            "goles_mínimos": 55,
+            "goles": 35,
+            "sueldo": 60000,
+            "bono": 15000,
+            "sueldo_completo": 70050.0,
+            "equipo": "morado"
+        },
+        {
+            "nombre": "Fernando",
+            "goles_mínimos": 44,
+            "goles": 40,
+            "sueldo": 44000,
+            "bono": 6400,
+            "sueldo_completo": 48768.0,
+            "equipo": "verde"
+        },
+        {
+            "nombre": "Enrique",
+            "goles_mínimos": 22,
+            "goles": 9,
+            "sueldo": 25000,
+            "bono": 7000,
+            "sueldo_completo": 28465.0,
+            "equipo": "verde"
+        },
+        {
+            "nombre": "Homero",
+            "goles_mínimos": 33,
+            "goles": 19,
+            "sueldo": 40000,
+            "bono": 18000,
+            "sueldo_completo": 50440.0,
+            "equipo": "verde"
+        },
+        {
+            "nombre": "Ariel",
+            "goles_mínimos": 33,
+            "goles": 9,
+            "sueldo": 20000,
+            "bono": 5000,
+            "sueldo_completo": 22125.0,
+            "equipo": "verde"
+        },
+        {
+            "nombre": "Mario",
+            "goles_mínimos": 22,
+            "goles": 33,
+            "sueldo": 25000,
+            "bono": 2300,
+            "sueldo_completo": 27932.5,
+            "equipo": "azul"
+        },
+        {
+            "nombre": "John",
+            "goles_mínimos": 44,
+            "goles": 41,
+            "sueldo": 60000,
+            "bono": 10000,
+            "sueldo_completo": 69900.0,
+            "equipo": "azul"
+        },
+        {
+            "nombre": "Juan Pablo",
+            "goles_mínimos": 55,
+            "goles": 33,
+            "sueldo": 65000,
+            "bono": 20000,
+            "sueldo_completo": 81500.0,
+            "equipo": "azul"
+        },
+        {
+            "nombre": "Daniel",
+            "goles_mínimos": 44,
+            "goles": 67,
+            "sueldo": 75000,
+            "bono": 30000,
+            "sueldo_completo": 113550.0,
+            "equipo": "azul"
+        }
+    ]
+}

@@ -2,7 +2,7 @@ name: Tests and formatter
 
 on:
   push:
-    branches: [ main]
+    branches: [main]
 
 jobs:
   build:
@@ -27,3 +27,6 @@ jobs:
     - name: Flake
       run: |
         pipenv run flake8
+    - name: Test
+      run: |
+        pipenv run pytest

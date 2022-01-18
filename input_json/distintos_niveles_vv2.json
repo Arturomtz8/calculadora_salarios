@@ -1,0 +1,122 @@
+{
+    "jugadores" : [  
+       {  
+          "nombre":"Antonio",
+          "nivel": "Cuauh",
+          "goles":27,
+          "sueldo":35000,
+          "bono":8000,
+          "sueldo_completo":null,
+          "equipo":"morado"
+       },
+       {  
+        "nombre":"Fernando",
+        "nivel":"C",
+        "goles":40,
+        "sueldo":44000,
+        "bono":6400,
+        "sueldo_completo":null,
+        "equipo":"verde"
+     },
+
+     {  
+        "nombre":"Mario",
+        "nivel": "A",
+        "goles":33,
+        "sueldo":25000,
+        "bono":2300,
+        "sueldo_completo":null,
+        "equipo":"azul"
+     },
+     {  
+      "nombre":"David",
+      "nivel":"B",
+      "goles":24,
+      "sueldo":36000,
+      "bono":5500,
+      "sueldo_completo":null,
+      "equipo":"morado"
+   },
+
+   {  
+      "nombre":"John",
+      "nivel":"C",
+      "goles":41,
+      "sueldo":60000,
+      "bono":10000,
+      "sueldo_completo":null,
+      "equipo":"azul"
+   },
+
+   {  
+      "nombre":"Enrique",
+      "nivel":"A",
+      "goles":9,
+      "sueldo":25000,
+      "bono":7000,
+      "sueldo_completo":null,
+      "equipo":"verde"
+   },
+
+   {  
+      "nombre":"Juan Pablo",
+      "nivel":"Cuauh",
+      "goles":33,
+      "sueldo":65000,
+      "bono":20000,
+      "sueldo_completo":null,
+      "equipo":"azul"
+   }, 
+
+   {  
+      "nombre":"Homero",
+      "nivel":"B",
+      "goles":19,
+      "sueldo":40000,
+      "bono":18000,
+      "sueldo_completo":null,
+      "equipo":"verde"
+   },
+
+
+   {  
+      "nombre":"Joel",
+      "nivel":"A",
+      "goles":30,
+      "sueldo":26000,
+      "bono":9000,
+      "sueldo_completo":null,
+      "equipo":"morado"
+   },
+
+   {  
+      "nombre":"Edwin",
+      "nivel":"Cuauh",
+      "goles":35,
+      "sueldo":60000,
+      "bono":15000,
+      "sueldo_completo":null,
+      "equipo":"morado"
+   },
+
+   {  
+      "nombre":"Ariel",
+      "nivel":"B",
+      "goles":9,
+      "sueldo":20000,
+      "bono":5000,
+      "sueldo_completo":null,
+      "equipo":"verde"
+   }, 
+
+   {  
+      "nombre":"Daniel",
+      "nivel":"C",
+      "goles":67,
+      "sueldo":75000,
+      "bono":30000,
+      "sueldo_completo":null,
+      "equipo":"azul"
+   }
+    ]
+ }

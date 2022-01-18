@@ -1,19 +1,18 @@
 import json
-import numpy as np
 import pandas as pd
 
 
-niveles = {"A": 5, "B": 10, "C": 15, "CUAUH": 20}
-
-
-class TableroJugadores:
+class CalculadoraSalarios:
     """
-    para hacer una instancia de esta clase sólo requieres un
-    parametro, el nombre del archivo. El método que se
-    apoya en el resto de métodos es convertir_a_json.
+    para hacer una instancia de esta clase requieres un
+    parámetro obligatorio, el nombre del archivo.
+    El otro parámetro "niveles" es opcional, puedes sustituirlo
+    por otros niveles que se ajusten al equipo.
     """
-    def __init__(self, nombre_archivo):
+
+    def __init__(self, nombre_archivo, niveles={"a": 5, "b": 10, "c": 15, "cuauh": 20}):
         self.nombre_archivo = nombre_archivo
+        self.niveles = {k.upper(): v for k, v in niveles.items()}
 
     def leer_json(self):
         with open(f"input_json/{self.nombre_archivo}") as f:
@@ -33,13 +32,10 @@ class TableroJugadores:
         sustituye la columna de "nivel" por el número de goles
         que debería meter cada jugador dependiendo su
         categoría y la renombra como "goles_mínimos".
-        En caso de que la columna tenga el nivel como
-        número, sólo renombrará la columna
         """
         df = self.convertir_a_dataframe()
-        if not df["nivel"].dtype == np.int64:
-            uppercased = df["nivel"].str.upper()
-            df["nivel"] = uppercased.map(niveles)
+        uppercased = df["nivel"].str.upper()
+        df["nivel"] = uppercased.map(self.niveles)
         df.rename(columns={"nivel": "goles_mínimos"}, inplace=True)
         return df
 

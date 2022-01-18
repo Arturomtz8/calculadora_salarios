@@ -1,0 +1,40 @@
+{
+    "jugadores": [
+        {
+            "nombre": "Roberto",
+            "goles_mínimos": 10,
+            "goles": 24,
+            "sueldo": 40000,
+            "bono": 13000,
+            "sueldo_completo": 62165.0,
+            "equipo": "azul"
+        },
+        {
+            "nombre": "Fernando",
+            "goles_mínimos": 40,
+            "goles": 38,
+            "sueldo": 45000,
+            "bono": 28000,
+            "sueldo_completo": 72440.0,
+            "equipo": "azul"
+        },
+        {
+            "nombre": "Esteban",
+            "goles_mínimos": 30,
+            "goles": 21,
+            "sueldo": 40000,
+            "bono": 24000,
+            "sueldo_completo": 60520.0,
+            "equipo": "azul"
+        },
+        {
+            "nombre": "José Luis",
+            "goles_mínimos": 20,
+            "goles": 18,
+            "sueldo": 28000,
+            "bono": 8000,
+            "sueldo_completo": 35640.0,
+            "equipo": "azul"
+        }
+    ]
+}
